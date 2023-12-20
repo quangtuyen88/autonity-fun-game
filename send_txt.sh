@@ -9,7 +9,7 @@ get_current_nonce() {
 
 ### if you are not using this guide to setup your node 
 ### https://github.com/web3cdnservices/autonity-validator-toolkit/
-### change docker exec -i aut_client /root/.local/bin/aut to auth for all command
+### change docker exec -i aut_client /root/.local/bin/aut to aut for all command
 perform_transaction_to_wallet1() {
           local specific_nonce=$1
     docker exec -i aut_client /root/.local/bin/aut tx make --to first_wallet --value 5 -n $specific_nonce |
