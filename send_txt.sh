@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+### if you are not using this guide to setup your node
+### https://github.com/web3cdnservices/autonity-validator-toolkit/
+### change docker exec -i aut_client /root/.local/bin/aut to aut for all command
+
+
 get_current_nonce() {
     docker exec -i aut_client /root/.local/bin/aut account info | grep '"tx_count"' | awk '{print $2}' | tr -d ','
 }
@@ -7,9 +13,7 @@ get_current_nonce() {
 # Function to execute a single transaction
 ## change 5 to ATN value you wanna send each txt
 
-### if you are not using this guide to setup your node 
-### https://github.com/web3cdnservices/autonity-validator-toolkit/
-### change docker exec -i aut_client /root/.local/bin/aut to aut for all command
+
 perform_transaction_to_wallet1() {
           local specific_nonce=$1
     docker exec -i aut_client /root/.local/bin/aut tx make --to first_wallet --value 5 -n $specific_nonce |
